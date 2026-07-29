@@ -109,7 +109,7 @@ function DashboardHome() {
               <Badge className="rounded-full bg-white/15 text-primary-foreground hover:bg-white/20">
                 <Sparkles className="mr-1 size-3" /> Selamat Datang
               </Badge>
-              <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              <h2 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-red-500 sm:text-4xl lg:text-5xl">
                 Dashboard Informasi
                 <br />
                 Sekolah Alam Al-Karim
