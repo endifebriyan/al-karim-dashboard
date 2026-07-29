@@ -9,8 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProgramRouteImport } from './routes/program'
+import { Route as JenjangRouteImport } from './routes/jenjang'
+import { Route as BeritaRouteImport } from './routes/berita'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ProgramRoute = ProgramRouteImport.update({
+  id: '/program',
+  path: '/program',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JenjangRoute = JenjangRouteImport.update({
+  id: '/jenjang',
+  path: '/jenjang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeritaRoute = BeritaRouteImport.update({
+  id: '/berita',
+  path: '/berita',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +37,61 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/berita': typeof BeritaRoute
+  '/jenjang': typeof JenjangRoute
+  '/program': typeof ProgramRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/berita': typeof BeritaRoute
+  '/jenjang': typeof JenjangRoute
+  '/program': typeof ProgramRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/berita': typeof BeritaRoute
+  '/jenjang': typeof JenjangRoute
+  '/program': typeof ProgramRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/berita' | '/jenjang' | '/program'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/berita' | '/jenjang' | '/program'
+  id: '__root__' | '/' | '/berita' | '/jenjang' | '/program'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BeritaRoute: typeof BeritaRoute
+  JenjangRoute: typeof JenjangRoute
+  ProgramRoute: typeof ProgramRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/program': {
+      id: '/program'
+      path: '/program'
+      fullPath: '/program'
+      preLoaderRoute: typeof ProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jenjang': {
+      id: '/jenjang'
+      path: '/jenjang'
+      fullPath: '/jenjang'
+      preLoaderRoute: typeof JenjangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/berita': {
+      id: '/berita'
+      path: '/berita'
+      fullPath: '/berita'
+      preLoaderRoute: typeof BeritaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +104,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BeritaRoute: BeritaRoute,
+  JenjangRoute: JenjangRoute,
+  ProgramRoute: ProgramRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
