@@ -9,14 +9,29 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StatistikRouteImport } from './routes/statistik'
+import { Route as SiswaRouteImport } from './routes/siswa'
 import { Route as ProgramRouteImport } from './routes/program'
 import { Route as PrestasiRouteImport } from './routes/prestasi'
+import { Route as PpdbRouteImport } from './routes/ppdb'
+import { Route as PengaturanRouteImport } from './routes/pengaturan'
 import { Route as JenjangRouteImport } from './routes/jenjang'
+import { Route as GuruRouteImport } from './routes/guru'
 import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as BeritaRouteImport } from './routes/berita'
 import { Route as AgendaRouteImport } from './routes/agenda'
 import { Route as IndexRouteImport } from './routes/index'
 
+const StatistikRoute = StatistikRouteImport.update({
+  id: '/statistik',
+  path: '/statistik',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiswaRoute = SiswaRouteImport.update({
+  id: '/siswa',
+  path: '/siswa',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgramRoute = ProgramRouteImport.update({
   id: '/program',
   path: '/program',
@@ -27,9 +42,24 @@ const PrestasiRoute = PrestasiRouteImport.update({
   path: '/prestasi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PpdbRoute = PpdbRouteImport.update({
+  id: '/ppdb',
+  path: '/ppdb',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PengaturanRoute = PengaturanRouteImport.update({
+  id: '/pengaturan',
+  path: '/pengaturan',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JenjangRoute = JenjangRouteImport.update({
   id: '/jenjang',
   path: '/jenjang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuruRoute = GuruRouteImport.update({
+  id: '/guru',
+  path: '/guru',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GaleriRoute = GaleriRouteImport.update({
@@ -58,18 +88,28 @@ export interface FileRoutesByFullPath {
   '/agenda': typeof AgendaRoute
   '/berita': typeof BeritaRoute
   '/galeri': typeof GaleriRoute
+  '/guru': typeof GuruRoute
   '/jenjang': typeof JenjangRoute
+  '/pengaturan': typeof PengaturanRoute
+  '/ppdb': typeof PpdbRoute
   '/prestasi': typeof PrestasiRoute
   '/program': typeof ProgramRoute
+  '/siswa': typeof SiswaRoute
+  '/statistik': typeof StatistikRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agenda': typeof AgendaRoute
   '/berita': typeof BeritaRoute
   '/galeri': typeof GaleriRoute
+  '/guru': typeof GuruRoute
   '/jenjang': typeof JenjangRoute
+  '/pengaturan': typeof PengaturanRoute
+  '/ppdb': typeof PpdbRoute
   '/prestasi': typeof PrestasiRoute
   '/program': typeof ProgramRoute
+  '/siswa': typeof SiswaRoute
+  '/statistik': typeof StatistikRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -77,9 +117,14 @@ export interface FileRoutesById {
   '/agenda': typeof AgendaRoute
   '/berita': typeof BeritaRoute
   '/galeri': typeof GaleriRoute
+  '/guru': typeof GuruRoute
   '/jenjang': typeof JenjangRoute
+  '/pengaturan': typeof PengaturanRoute
+  '/ppdb': typeof PpdbRoute
   '/prestasi': typeof PrestasiRoute
   '/program': typeof ProgramRoute
+  '/siswa': typeof SiswaRoute
+  '/statistik': typeof StatistikRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -88,27 +133,42 @@ export interface FileRouteTypes {
     | '/agenda'
     | '/berita'
     | '/galeri'
+    | '/guru'
     | '/jenjang'
+    | '/pengaturan'
+    | '/ppdb'
     | '/prestasi'
     | '/program'
+    | '/siswa'
+    | '/statistik'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/agenda'
     | '/berita'
     | '/galeri'
+    | '/guru'
     | '/jenjang'
+    | '/pengaturan'
+    | '/ppdb'
     | '/prestasi'
     | '/program'
+    | '/siswa'
+    | '/statistik'
   id:
     | '__root__'
     | '/'
     | '/agenda'
     | '/berita'
     | '/galeri'
+    | '/guru'
     | '/jenjang'
+    | '/pengaturan'
+    | '/ppdb'
     | '/prestasi'
     | '/program'
+    | '/siswa'
+    | '/statistik'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -116,13 +176,32 @@ export interface RootRouteChildren {
   AgendaRoute: typeof AgendaRoute
   BeritaRoute: typeof BeritaRoute
   GaleriRoute: typeof GaleriRoute
+  GuruRoute: typeof GuruRoute
   JenjangRoute: typeof JenjangRoute
+  PengaturanRoute: typeof PengaturanRoute
+  PpdbRoute: typeof PpdbRoute
   PrestasiRoute: typeof PrestasiRoute
   ProgramRoute: typeof ProgramRoute
+  SiswaRoute: typeof SiswaRoute
+  StatistikRoute: typeof StatistikRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/statistik': {
+      id: '/statistik'
+      path: '/statistik'
+      fullPath: '/statistik'
+      preLoaderRoute: typeof StatistikRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/siswa': {
+      id: '/siswa'
+      path: '/siswa'
+      fullPath: '/siswa'
+      preLoaderRoute: typeof SiswaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/program': {
       id: '/program'
       path: '/program'
@@ -137,11 +216,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrestasiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ppdb': {
+      id: '/ppdb'
+      path: '/ppdb'
+      fullPath: '/ppdb'
+      preLoaderRoute: typeof PpdbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pengaturan': {
+      id: '/pengaturan'
+      path: '/pengaturan'
+      fullPath: '/pengaturan'
+      preLoaderRoute: typeof PengaturanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/jenjang': {
       id: '/jenjang'
       path: '/jenjang'
       fullPath: '/jenjang'
       preLoaderRoute: typeof JenjangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guru': {
+      id: '/guru'
+      path: '/guru'
+      fullPath: '/guru'
+      preLoaderRoute: typeof GuruRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/galeri': {
@@ -180,9 +280,14 @@ const rootRouteChildren: RootRouteChildren = {
   AgendaRoute: AgendaRoute,
   BeritaRoute: BeritaRoute,
   GaleriRoute: GaleriRoute,
+  GuruRoute: GuruRoute,
   JenjangRoute: JenjangRoute,
+  PengaturanRoute: PengaturanRoute,
+  PpdbRoute: PpdbRoute,
   PrestasiRoute: PrestasiRoute,
   ProgramRoute: ProgramRoute,
+  SiswaRoute: SiswaRoute,
+  StatistikRoute: StatistikRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
