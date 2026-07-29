@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StatistikRouteImport } from './routes/statistik'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SiswaRouteImport } from './routes/siswa'
 import { Route as ProgramRouteImport } from './routes/program'
 import { Route as PrestasiRouteImport } from './routes/prestasi'
@@ -25,6 +26,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const StatistikRoute = StatistikRouteImport.update({
   id: '/statistik',
   path: '/statistik',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SiswaRoute = SiswaRouteImport.update({
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/prestasi': typeof PrestasiRoute
   '/program': typeof ProgramRoute
   '/siswa': typeof SiswaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/statistik': typeof StatistikRoute
 }
 export interface FileRoutesByTo {
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/prestasi': typeof PrestasiRoute
   '/program': typeof ProgramRoute
   '/siswa': typeof SiswaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/statistik': typeof StatistikRoute
 }
 export interface FileRoutesById {
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/prestasi': typeof PrestasiRoute
   '/program': typeof ProgramRoute
   '/siswa': typeof SiswaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/statistik': typeof StatistikRoute
 }
 export interface FileRouteTypes {
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
     | '/prestasi'
     | '/program'
     | '/siswa'
+    | '/sitemap.xml'
     | '/statistik'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/prestasi'
     | '/program'
     | '/siswa'
+    | '/sitemap.xml'
     | '/statistik'
   id:
     | '__root__'
@@ -168,6 +179,7 @@ export interface FileRouteTypes {
     | '/prestasi'
     | '/program'
     | '/siswa'
+    | '/sitemap.xml'
     | '/statistik'
   fileRoutesById: FileRoutesById
 }
@@ -183,6 +195,7 @@ export interface RootRouteChildren {
   PrestasiRoute: typeof PrestasiRoute
   ProgramRoute: typeof ProgramRoute
   SiswaRoute: typeof SiswaRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StatistikRoute: typeof StatistikRoute
 }
 
@@ -193,6 +206,13 @@ declare module '@tanstack/react-router' {
       path: '/statistik'
       fullPath: '/statistik'
       preLoaderRoute: typeof StatistikRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/siswa': {
@@ -287,6 +307,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrestasiRoute: PrestasiRoute,
   ProgramRoute: ProgramRoute,
   SiswaRoute: SiswaRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   StatistikRoute: StatistikRoute,
 }
 export const routeTree = rootRouteImport
