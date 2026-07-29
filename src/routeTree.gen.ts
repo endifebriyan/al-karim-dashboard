@@ -9,8 +9,80 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StatistikRouteImport } from './routes/statistik'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SiswaRouteImport } from './routes/siswa'
+import { Route as ProgramRouteImport } from './routes/program'
+import { Route as PrestasiRouteImport } from './routes/prestasi'
+import { Route as PpdbRouteImport } from './routes/ppdb'
+import { Route as PengaturanRouteImport } from './routes/pengaturan'
+import { Route as JenjangRouteImport } from './routes/jenjang'
+import { Route as GuruRouteImport } from './routes/guru'
+import { Route as GaleriRouteImport } from './routes/galeri'
+import { Route as BeritaRouteImport } from './routes/berita'
+import { Route as AgendaRouteImport } from './routes/agenda'
 import { Route as IndexRouteImport } from './routes/index'
 
+const StatistikRoute = StatistikRouteImport.update({
+  id: '/statistik',
+  path: '/statistik',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiswaRoute = SiswaRouteImport.update({
+  id: '/siswa',
+  path: '/siswa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramRoute = ProgramRouteImport.update({
+  id: '/program',
+  path: '/program',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrestasiRoute = PrestasiRouteImport.update({
+  id: '/prestasi',
+  path: '/prestasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PpdbRoute = PpdbRouteImport.update({
+  id: '/ppdb',
+  path: '/ppdb',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PengaturanRoute = PengaturanRouteImport.update({
+  id: '/pengaturan',
+  path: '/pengaturan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JenjangRoute = JenjangRouteImport.update({
+  id: '/jenjang',
+  path: '/jenjang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuruRoute = GuruRouteImport.update({
+  id: '/guru',
+  path: '/guru',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GaleriRoute = GaleriRouteImport.update({
+  id: '/galeri',
+  path: '/galeri',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeritaRoute = BeritaRouteImport.update({
+  id: '/berita',
+  path: '/berita',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgendaRoute = AgendaRouteImport.update({
+  id: '/agenda',
+  path: '/agenda',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +91,200 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
+  '/berita': typeof BeritaRoute
+  '/galeri': typeof GaleriRoute
+  '/guru': typeof GuruRoute
+  '/jenjang': typeof JenjangRoute
+  '/pengaturan': typeof PengaturanRoute
+  '/ppdb': typeof PpdbRoute
+  '/prestasi': typeof PrestasiRoute
+  '/program': typeof ProgramRoute
+  '/siswa': typeof SiswaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/statistik': typeof StatistikRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
+  '/berita': typeof BeritaRoute
+  '/galeri': typeof GaleriRoute
+  '/guru': typeof GuruRoute
+  '/jenjang': typeof JenjangRoute
+  '/pengaturan': typeof PengaturanRoute
+  '/ppdb': typeof PpdbRoute
+  '/prestasi': typeof PrestasiRoute
+  '/program': typeof ProgramRoute
+  '/siswa': typeof SiswaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/statistik': typeof StatistikRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
+  '/berita': typeof BeritaRoute
+  '/galeri': typeof GaleriRoute
+  '/guru': typeof GuruRoute
+  '/jenjang': typeof JenjangRoute
+  '/pengaturan': typeof PengaturanRoute
+  '/ppdb': typeof PpdbRoute
+  '/prestasi': typeof PrestasiRoute
+  '/program': typeof ProgramRoute
+  '/siswa': typeof SiswaRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/statistik': typeof StatistikRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agenda'
+    | '/berita'
+    | '/galeri'
+    | '/guru'
+    | '/jenjang'
+    | '/pengaturan'
+    | '/ppdb'
+    | '/prestasi'
+    | '/program'
+    | '/siswa'
+    | '/sitemap.xml'
+    | '/statistik'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agenda'
+    | '/berita'
+    | '/galeri'
+    | '/guru'
+    | '/jenjang'
+    | '/pengaturan'
+    | '/ppdb'
+    | '/prestasi'
+    | '/program'
+    | '/siswa'
+    | '/sitemap.xml'
+    | '/statistik'
+  id:
+    | '__root__'
+    | '/'
+    | '/agenda'
+    | '/berita'
+    | '/galeri'
+    | '/guru'
+    | '/jenjang'
+    | '/pengaturan'
+    | '/ppdb'
+    | '/prestasi'
+    | '/program'
+    | '/siswa'
+    | '/sitemap.xml'
+    | '/statistik'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgendaRoute: typeof AgendaRoute
+  BeritaRoute: typeof BeritaRoute
+  GaleriRoute: typeof GaleriRoute
+  GuruRoute: typeof GuruRoute
+  JenjangRoute: typeof JenjangRoute
+  PengaturanRoute: typeof PengaturanRoute
+  PpdbRoute: typeof PpdbRoute
+  PrestasiRoute: typeof PrestasiRoute
+  ProgramRoute: typeof ProgramRoute
+  SiswaRoute: typeof SiswaRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StatistikRoute: typeof StatistikRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/statistik': {
+      id: '/statistik'
+      path: '/statistik'
+      fullPath: '/statistik'
+      preLoaderRoute: typeof StatistikRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/siswa': {
+      id: '/siswa'
+      path: '/siswa'
+      fullPath: '/siswa'
+      preLoaderRoute: typeof SiswaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/program': {
+      id: '/program'
+      path: '/program'
+      fullPath: '/program'
+      preLoaderRoute: typeof ProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prestasi': {
+      id: '/prestasi'
+      path: '/prestasi'
+      fullPath: '/prestasi'
+      preLoaderRoute: typeof PrestasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ppdb': {
+      id: '/ppdb'
+      path: '/ppdb'
+      fullPath: '/ppdb'
+      preLoaderRoute: typeof PpdbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pengaturan': {
+      id: '/pengaturan'
+      path: '/pengaturan'
+      fullPath: '/pengaturan'
+      preLoaderRoute: typeof PengaturanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jenjang': {
+      id: '/jenjang'
+      path: '/jenjang'
+      fullPath: '/jenjang'
+      preLoaderRoute: typeof JenjangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guru': {
+      id: '/guru'
+      path: '/guru'
+      fullPath: '/guru'
+      preLoaderRoute: typeof GuruRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galeri': {
+      id: '/galeri'
+      path: '/galeri'
+      fullPath: '/galeri'
+      preLoaderRoute: typeof GaleriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/berita': {
+      id: '/berita'
+      path: '/berita'
+      fullPath: '/berita'
+      preLoaderRoute: typeof BeritaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agenda': {
+      id: '/agenda'
+      path: '/agenda'
+      fullPath: '/agenda'
+      preLoaderRoute: typeof AgendaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +297,19 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgendaRoute: AgendaRoute,
+  BeritaRoute: BeritaRoute,
+  GaleriRoute: GaleriRoute,
+  GuruRoute: GuruRoute,
+  JenjangRoute: JenjangRoute,
+  PengaturanRoute: PengaturanRoute,
+  PpdbRoute: PpdbRoute,
+  PrestasiRoute: PrestasiRoute,
+  ProgramRoute: ProgramRoute,
+  SiswaRoute: SiswaRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StatistikRoute: StatistikRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
