@@ -10,8 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ProgramRouteImport } from './routes/program'
+import { Route as PrestasiRouteImport } from './routes/prestasi'
 import { Route as JenjangRouteImport } from './routes/jenjang'
+import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as BeritaRouteImport } from './routes/berita'
+import { Route as AgendaRouteImport } from './routes/agenda'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ProgramRoute = ProgramRouteImport.update({
@@ -19,14 +22,29 @@ const ProgramRoute = ProgramRouteImport.update({
   path: '/program',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrestasiRoute = PrestasiRouteImport.update({
+  id: '/prestasi',
+  path: '/prestasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JenjangRoute = JenjangRouteImport.update({
   id: '/jenjang',
   path: '/jenjang',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GaleriRoute = GaleriRouteImport.update({
+  id: '/galeri',
+  path: '/galeri',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BeritaRoute = BeritaRouteImport.update({
   id: '/berita',
   path: '/berita',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgendaRoute = AgendaRouteImport.update({
+  id: '/agenda',
+  path: '/agenda',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,35 +55,69 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
   '/berita': typeof BeritaRoute
+  '/galeri': typeof GaleriRoute
   '/jenjang': typeof JenjangRoute
+  '/prestasi': typeof PrestasiRoute
   '/program': typeof ProgramRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
   '/berita': typeof BeritaRoute
+  '/galeri': typeof GaleriRoute
   '/jenjang': typeof JenjangRoute
+  '/prestasi': typeof PrestasiRoute
   '/program': typeof ProgramRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agenda': typeof AgendaRoute
   '/berita': typeof BeritaRoute
+  '/galeri': typeof GaleriRoute
   '/jenjang': typeof JenjangRoute
+  '/prestasi': typeof PrestasiRoute
   '/program': typeof ProgramRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/berita' | '/jenjang' | '/program'
+  fullPaths:
+    | '/'
+    | '/agenda'
+    | '/berita'
+    | '/galeri'
+    | '/jenjang'
+    | '/prestasi'
+    | '/program'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/berita' | '/jenjang' | '/program'
-  id: '__root__' | '/' | '/berita' | '/jenjang' | '/program'
+  to:
+    | '/'
+    | '/agenda'
+    | '/berita'
+    | '/galeri'
+    | '/jenjang'
+    | '/prestasi'
+    | '/program'
+  id:
+    | '__root__'
+    | '/'
+    | '/agenda'
+    | '/berita'
+    | '/galeri'
+    | '/jenjang'
+    | '/prestasi'
+    | '/program'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgendaRoute: typeof AgendaRoute
   BeritaRoute: typeof BeritaRoute
+  GaleriRoute: typeof GaleriRoute
   JenjangRoute: typeof JenjangRoute
+  PrestasiRoute: typeof PrestasiRoute
   ProgramRoute: typeof ProgramRoute
 }
 
@@ -78,6 +130,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProgramRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/prestasi': {
+      id: '/prestasi'
+      path: '/prestasi'
+      fullPath: '/prestasi'
+      preLoaderRoute: typeof PrestasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/jenjang': {
       id: '/jenjang'
       path: '/jenjang'
@@ -85,11 +144,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JenjangRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/galeri': {
+      id: '/galeri'
+      path: '/galeri'
+      fullPath: '/galeri'
+      preLoaderRoute: typeof GaleriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/berita': {
       id: '/berita'
       path: '/berita'
       fullPath: '/berita'
       preLoaderRoute: typeof BeritaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agenda': {
+      id: '/agenda'
+      path: '/agenda'
+      fullPath: '/agenda'
+      preLoaderRoute: typeof AgendaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -104,8 +177,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgendaRoute: AgendaRoute,
   BeritaRoute: BeritaRoute,
+  GaleriRoute: GaleriRoute,
   JenjangRoute: JenjangRoute,
+  PrestasiRoute: PrestasiRoute,
   ProgramRoute: ProgramRoute,
 }
 export const routeTree = rootRouteImport
